@@ -84,8 +84,8 @@ WSGI_APPLICATION = 'milkmarvels.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mm_py',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'test4',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',
