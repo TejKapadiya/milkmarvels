@@ -85,10 +85,10 @@ WSGI_APPLICATION = 'milkmarvels.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'sp_mm',
+        'NAME': 'mm_py',
         'USER': 'root',
         'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }
