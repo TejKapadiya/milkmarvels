@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Product Page</title>
+  </head>
+  <body>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #00796b;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 10px;
+      }
+
+      nav a {
+        color: #fff;
+        text-decoration: none;
+      }
+
+      section {
+        margin: 20px;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      .product-card {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 0.5em 0.5em;
+        width: 30%;
+        float: left;
+      }
+
+      label {
+        margin-right: 5px;
+      }
+
+      input {
+        width: 40px;
+        text-align: center;
+      }
+
+      button {
+        background-color: #00796b;
+        color: #fff;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+      }
+
+      footer {
+        background-color: #00796b;
+        color: #fff;
+        text-align: center;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+    <header>
+      <h1>Milk Marvels</h1>
+      <nav>
+          <a href="#" style="float: left;width: 15%;">Products</a>
+          <a href="#" style="float: left;width: 15%;">Cart</a>
+          <a href="#" style="width: 55%"></a>
+          <a href="#" style="float: right;width: 15%;">Login/Logout</a>
+      </nav>
+    </header>
+
+    <section>
+      <div class="product-card">
+        <h2>Product Name</h2>
+        <p>Maker: ABC Dairy</p>
+        <p>Price: $10.99</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card">
+        <h2>Another Product</h2>
+        <p>Maker: XYZ Farm</p>
+        <p>Price: $8.99</p>
+        <button>Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <h2>Another Product</h2>
+        <p>Maker: XYZ Farm</p>
+        <p>Price: $8.99</p>
+        <button>Add to Cart</button>
+      </div>    
+    </section>
+    <footer>
+        <p>&copy; 2023 Milk Marvels</p>
+    </footer>
+  </body>
+</html>

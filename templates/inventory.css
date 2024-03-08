@@ -1,0 +1,15 @@
+.card{
+    height: 7em;
+    width:33%;
+    margin: 0 35% 0 35% ;
+    border-style:double;
+    /* margin: 0; */
+    padding: 0;
+    /* display: inline-block; */
+}
+.card img{
+    text-align: center;
+    align-items: center;
+    height: 3em;
+    width: 2em;
+}
