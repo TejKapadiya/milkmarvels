@@ -38,4 +38,4 @@ class Orders(models.Model):
 class Coupon(models.Model):
     coupon_id = models.AutoField(primary_key=True)
     amount = models.FloatField()
-    discount = models.FloatField()
+    coupon_name = models.CharField(default="abc", max_length=25)
