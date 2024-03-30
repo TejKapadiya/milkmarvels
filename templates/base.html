@@ -12,7 +12,7 @@
 <title>home</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary bg-gradient">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
         <img src="{% static 'images/logo.png' %}" alt="logo" width="70px" height="50px">
@@ -49,8 +49,31 @@
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
       </div>
-      <ul class="navbar-nav ma-auto mb-2-lg-0">
-    </div>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown mx-2">
+        <a class="nav-link dropdown-toggle text-white" href="#"
+        id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Nilesh</a>
+        <ul class="dropdown-menu" aria-labelledby="profileDropdown">
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><a class="dropdown-item" href="#">Orders</a></li>
+        <li><a class="dropdown-item" href="#">Change Password</a></li>
+        <li><a class="dropdown-item" href="#">Logout</a></li>
+        </ul>
+        </li>
+        <li class="nav-item mx-2">
+        <a href="#" class="nav-link text-white">Cart 4</a>
+        </li>
+        <li class="nav-item mx-2">
+        <a href="#" class="nav-link text-white">Wishlist 4</a>
+        </li>
+        <li class="nav-item mx-2">
+          <a href="#" class="nav-link text-white">Login</a>
+          </li>
+          <li class="nav-item mx-2">
+          <a href="#" class="nav-link text-white">Registration</a>
+          </11>
+        </ul>   
+      </div>
   </nav>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 {% comment %} <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script> {% endcomment %}
@@ -61,10 +84,16 @@
 <script src="{% static 'js/all.min.js '%}"></script>
 <scriptm src="{% static 'js/myscript.js '%}"></script>
 
-{% block main-conetnt %}{% endblock main-conetnt %}
+{% block banner-slider %} {% endblock banner-slider %} 
+{% block information %}  {% endblock information %}
+
+
+{% block main-content %}
+ {% endblock main-content %}
+
 <h1>hello</H1>
-<footer>
-    <p>&copy; 2023 Milk Marvels || develop by Tej & Heet</p>
+<footer class="container-fluid fixed-bottom navbar-dark bg-primary text-center p-2">
+    &copy; 2023 Milk Marvels || develop by Tej & Heet
 </footer>
 
 <!-- <script src="script.js"></script> -->
