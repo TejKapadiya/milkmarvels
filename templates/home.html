@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
- {% block title %}Home {% endblock title %}
-
+{% block title %}
+  Home
+{% endblock title %}
 
 {% block banner-slider %}
 <div id="carousel" class="carousel slide" data-ride="carousel">
@@ -21,7 +22,7 @@
   </div>
 </div>
 
-{% endblock banner-slider %} 
+{% endblock banner-slider %}
 
 {% block information %}
   <div class="container">
@@ -33,21 +34,79 @@
 {% endblock information %}
 
 {% block main-content %}
+
 <div class="container">
   <h2 class="text-center">Dairy Products</h2>
-  <div class="row container">
-    <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;animation-name: none;">
-      <div class="goodnesssec buttermilk smbg">
-        <a href="">
-          <div class="goodnessseccont text-center">
-            <img src="{% static 'images/buffalo-ghee.png' %}" class="img-responsive"  />
-            <p class="mlkpro">Ghee</p>
-          </div>
-        </a>
+  <div>
+    <div class="row container">
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;animation-name: none;">
+        <div class="goodnesssec buttermilk smbg">
+          <a href="">
+            <div class="goodnessseccont text-center">
+              <img src="{% static 'images/buffalo-ghee.png' %}" class="img-responsive center-block" />
+              <p class="mlkpro">Ghee</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;animation-name: none;">
+        <div class="goodnesssec buttermilk .curdbgpro">
+          <a href="">
+            <div class="goodnessseccont text-center">
+              <img src="{% static 'images/curd-total.png' %}" class="img-responsive center-block" />
+              <p class="mlkpro">Curd</p>
+            </div>
+          </a>
+        </div>
       </div> 
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;animation-name: none;">
+        <div class="goodnesssec buttermilk buttermilk">
+          <a href="">
+            <div class="goodnessseccont text-center">
+              <img src="{% static 'images/kulfi.png' %}" class="img-responsive center-block" />
+              <p class="mlkpro">Kulfi</p>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
-    </div>
-    <br><br>
-    {% endblock main-content %}
   </div>
 </div>
+<div class="container">
+  <div>
+    <div class="row container">
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;animation-name: none;">
+        <div class="goodnesssec buttermilk smbg">
+          <a href="">
+            <div class="goodnessseccont text-center">
+              <img src="{% static 'images/buffalo-ghee.png' %}" class="img-responsive center-block" />
+              <p class="mlkpro">Ghee</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;animation-name: none;">
+        <div class="goodnesssec buttermilk .curdbgpro">
+          <a href="">
+            <div class="goodnessseccont text-center">
+              <img src="{% static 'images/curd-total.png' %}" class="img-responsive center-block" />
+              <p class="mlkpro">Curd</p>
+            </div>
+          </a>
+        </div>
+      </div> 
+      <div class="col-md-4 col-sm-4 mi-go wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s" style="animation-duration: 1s; animation-delay: 0.6s;animation-name: none;">
+        <div class="goodnesssec buttermilk buttermilk">
+          <a href="">
+            <div class="goodnessseccont text-center">
+              <img src="{% static 'images/kulfi.png' %}" class="img-responsive center-block" />
+              <p class="mlkpro">Kulfi</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock main-content %}

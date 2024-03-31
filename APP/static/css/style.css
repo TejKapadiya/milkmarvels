@@ -3,7 +3,7 @@
  font-size: 24px;
  text-align: center;
  margin-top: 20px;
- transition: transform .5s ease;
+ transition: transform .1s ease;
 }
 
  .owl-carousel .item:hover{
@@ -38,7 +38,7 @@
 
 
 .buttermilk{
-    background-color:#fff;background-image:linear-gradient(#fff7ef, #fff);
+    background-color:#9d0000;background-image:linear-gradient(#fff7ef, #fff);
     background-image:-webkit-linear-gradient(#fff7ef, #fff);
     background-image:-moz-linear-gradient(#fff7ef, #fff);
     background-image:-ms-linear-gradient(#fff7ef, #fff);
@@ -49,7 +49,7 @@
 }
 
 .smbg{
-    background-color:#fff;
+    background-color:#af1a1a;
     background-image:linear-gradient(rgba(110, 69, 143, 0.1), #fff);
     background-image:-webkit-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
     background-image:-moz-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
@@ -58,7 +58,7 @@
 }
 
 .curdbgpro{
-    background-color:#fff;
+    background-color:#3c53b9;
     background-image:linear-gradient(rgba(10, 77, 123, 0.1), #fff);
     background-image:-webkit-linear-gradient(rgba(10, 77, 123, 0.1), #fff);
     background-image:-moz-linear-gradient(rgba(10, 77, 123, 0.1), #fff);
