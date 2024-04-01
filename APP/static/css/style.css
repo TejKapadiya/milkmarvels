@@ -38,18 +38,18 @@
 
 
 .buttermilk{
-    background-color:#9d0000;background-image:linear-gradient(#fff7ef, #fff);
+    background-color:#b91818;background-image:linear-gradient(#fff7ef, #fff);
     background-image:-webkit-linear-gradient(#fff7ef, #fff);
     background-image:-moz-linear-gradient(#fff7ef, #fff);
-    background-image:-ms-linear-gradient(#fff7ef, #fff);
+    /* background-image:-ms-linear-gradient(#fff7ef, #fff); */
     background-image:-o-linear-gradient(#fff7ef, #fff);
     padding:50px 40px;
-    border:1px solid #efe8e1;
+    border:1px solid #84480b;
     padding-bottom:20px;
 }
 
 .smbg{
-    background-color:#af1a1a;
+    background-color:#fff;
     background-image:linear-gradient(rgba(110, 69, 143, 0.1), #fff);
     background-image:-webkit-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
     background-image:-moz-linear-gradient(rgba(110, 69, 143, 0.1), #fff);
@@ -66,7 +66,7 @@
     background-image:-o-linear-gradient(rgba(10, 77, 123, 0.1), #fff);
 }
 
-.goodnessseccont img{
+.goodnesssec img{
     width:100%;
 }
 

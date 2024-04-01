@@ -1,38 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Login{% endblock title %}
+{% block main-content %}
+    <div class="container">
+        <div class="row my-3">
+            <div class="col-sm-6 offset-sm-3">
+            <h3>Login</h3>
+            <hr>
+                <form action="" method="post" novalidate class="shadow p-5">
+                    {% csrf_token %}
+                        {% for fm in form %}
+                            {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors| striptags}}</small> <br>
+                        {% endfor %}
+                        <small><a href="{% url 'password_reset' %}">Forgot Password ?</a> </small>
+                        <br>
+                        <input type="submit" class="btn btn-primary mt-4" value="Login">
+                        <div class="text-center text-primary fw-bold">
+                            <small>New User? <a href="{% url 'customerregistration' %}" class="text-danger"> Create an Account</a></small>
+                        </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-
-<body>
-    <header>
-        <h1>Login</h1>
-    </header>
-
-    <main>
-        <form action="login.php" method="POST">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
+                        {% if form.non_field_errors %}
+                            {% for error in form.non_field_errors %}
+                            <p class="alert alert-danger my-3">{{error}}</p>
+                            {% endfor %}
+                        {% endif %}
+                </form>
             </div>
-
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-
-            <button type="submit">Login</button>
-        </form>
-
-        <p>Don't have an account? <a href="signup.html">Sign up</a></p>
-        <p>you manager? <a href="manager.html">Manager</a></p>
-
-    </main>
-
-</body>
-
-</html>
+        </div>
+    </div>
+{%endblock main-content %}

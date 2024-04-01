@@ -12,7 +12,7 @@
 # # Register your models here.
 
 from django.contrib import admin
-from .models import Product
+from .models import Product ,Customer
 
 @admin.register(Product)
 class ProductModelAdmin(admin.ModelAdmin):
@@ -22,4 +22,8 @@ class ProductModelAdmin(admin.ModelAdmin):
 # admin.site.register(Product, ProductAdmin)
 # admin.site.register(Product)
 
+
+@admin.register(Customer)
+class CustomerModelAdmin(admin.ModelAdmin):
+    list_display = ['id','user', 'locality', 'city', 'zipcode', 'state']
 
