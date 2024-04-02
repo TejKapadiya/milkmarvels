@@ -8,60 +8,10 @@
    <link rel="stylesheet" herf="{% static 'css/owl.carousel.min.css' %}" />  
    <link rel="stylesheet" herf="{% static 'css/all.min.css' %}" />  
    <link rel="stylesheet" herf="{% static 'css/style.css' %}" />  
-   <style>
    
-    
-    .container {
-      display: flex;
-      justify-content: center; /* Center the grid horizontally */
-    }
-    
-    
-    
-    /* .owl-carousel img{
-        transition: transform .5s ease;
-      }
-     .owl-carousel img:hover{
-        
-        transform : scale(1.25);
-    } */
-    
-    .rw-container {
-      width: 25%; /* Set width of each image container */
-      height: 25%; /* Set height of each image container to make them square */
-      margin: 5%; /* Adjust margin between image containers */
-    }
-    .goodnessseccont{
-      width: 200px; /* Set width of each image container */
-      height: 200px; /* Set height of each image container to make them square */
-      margin: 10px; /* Adjust margin between image containers */
-      overflow:visible; /* /*
-    }
-    
-    .buttermilk{
-        background-color:#b91818;background-image:linear-gradient(#fff7ef, #fff);
-        background-image:-webkit-linear-gradient(#fff7ef, #fff);
-        background-image:-moz-linear-gradient(#fff7ef, #fff);
-        /* background-image:-ms-linear-gradient(#fff7ef, #fff); */
-        background-image:-o-linear-gradient(#fff7ef, #fff);
-        padding:50px 40px;
-        border:1px solid #84480b;
-        padding-bottom:20px;
-    }
-    
-    
-   
-    .goodnesssec img{
-        width: 100%; /* Make image fill the container */
-      height: 100%; /* Make image fill the container */
-      object-fit: contain; 
-        /* grid-template-columns: 2fr 1fr;
-        grid-template-rows: repeat(4, min-content); */
-      }
-    
-    </style>
-<title>MM|{%block title%}{%endblock title%}</title>
-<title>home</title>
+   <title>{% block title %}{% endblock title%}</title>
+
+
 </head>
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary ">
@@ -103,7 +53,7 @@
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="submit">Search</button>
+          <button class="btn btn-danger" type="submit">Search</button>
         </form>
       </div>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">

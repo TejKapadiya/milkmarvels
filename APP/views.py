@@ -48,7 +48,7 @@ class ProductDetail(View):
 
 class CustomerRegistrationView(View):
     def get(self, request):
-        form = CustomerRegistrationForm()  # Corrected form instantiation
+        form = CustomerRegistrationForm()  
         return render(request, "customerregistration.html", locals())
 
     def post(self, request):
