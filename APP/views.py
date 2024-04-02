@@ -2,14 +2,15 @@ from django.shortcuts import render,redirect
 import os
 from django.db.models import Count
 # from urllib3 import request
-from django.http import HttpResponse 
+from django.http import HttpResponse ,JsonResponse
 from django.shortcuts import render
 from django.views import View
-from . models import Product , Customer
+from . models import Product , Customer ,Cart
 # from django.contrib.auth.forms import MySetPasswordForm
 
 from . forms import CustomerRegistrationForm , CustomerProfileForm ,MySetPasswordForm
 from django.contrib import messages
+from django.db.models import Q
 
 # Create your views here.
 # def login(request):
@@ -24,9 +25,6 @@ def about(request):
 def contact(request):
     return render(request,"contact.html")
 
-
-def cart(request):
-    return render(request,"cart.html")
 
 
 class CategoryView(View):
@@ -111,3 +109,45 @@ class updateAddress(View):
         else:
             messages.warning(request, "Invalid Input Data")
         return redirect("address")
+
+
+
+def add_to_cart(request):
+    user =  request.user
+    product_id = request.GET.get('prod_id')
+    product = Product.objects.get(id=product_id)
+    Cart(user=user , product=product).save()
+    return redirect('/cart')
+
+
+def show_cart(request):
+    user =  request.user
+    cart = Cart.objects.filter(user=user)
+    amount = 0
+    for p in cart:
+        value = p.quantity * p.product.discounted_price
+        amount = amount + value
+        totalamount = amount + 40
+    return render(request,'addtocart.html',locals())
+
+
+def plus_cart(request):
+    if request.method == 'GET':
+        prod_id=request.GET['prod_id']
+        c = Cart.objects.get(Q(product=prod_id) & Q(user=request.user))
+        c.quantity+=1
+        c.save()
+        #print(prod_id)
+    user = request.user
+    cart = Cart.objects.filter(user=user)
+    amount = 0
+    for p in cart:
+        value = p.quantity* p.product.discounted_price
+        amount = amount + value
+    totalamount = amount + 40
+    data={
+    'quantity':c.quantity,
+    'amount': amount,
+    'totalamount': totalamount
+    }
+    return JsonResponse(data)
