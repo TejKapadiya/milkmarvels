@@ -159,10 +159,12 @@ def minus_cart(request):
         prod_id=request.GET['prod_id']
         c = Cart.objects.get(Q(product=prod_id) & Q(user=request.user))
         c.quantity-=1
+        print(c.quantity)
         c.save()
         user = request.user
         cart = Cart.objects.filter (user=user)
         amount = 0
+        
         for p in cart:
             value = p.quantity * p.product.discounted_price
             amount = amount + value
@@ -171,5 +173,27 @@ def minus_cart(request):
         'quantity':c.quantity,
         'amount': amount,
         'totalamount': totalamount
+        }
+        
+        return JsonResponse (data)
+
+
+
+def remove_cart (request):
+    if request.method == 'GET':
+        prod_id=request.GET['prod_id']
+        c = Cart.objects.get(Q(product=prod_id) & Q(user=request.user))
+        c.delete()
+        user = request.user
+        cart = Cart.objects.filter(user=user)
+        amount = 0
+        for p in cart:
+            value = p.quantity* p.product.discounted_price
+            amount = amount + value
+        totalamount = amount 
+        data={
+        'amount': amount,
+        'totalamount': totalamount
+        
         }
         return JsonResponse (data)

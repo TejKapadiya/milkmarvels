@@ -33,3 +33,12 @@ class CustomerModelAdmin(admin.ModelAdmin):
 @admin.register(Cart)
 class CartModelAdmin(admin.ModelAdmin):
     list_display = ['id', 'user', 'product', 'quantity']
+
+
+from django.db.models.signals import pre_save
+from django.dispatch import receiver
+
+@receiver(pre_save, sender=Cart)
+def delete_entry_with_zero_quantity(sender, instance, **kwargs):
+    if instance.quantity == 0:
+        instance.delete()
