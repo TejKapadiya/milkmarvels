@@ -21,6 +21,7 @@ urlpatterns = [
     path('cart/', views.show_cart, name='showcart'),
     path('checkout/', views.show_cart, name='checkout'),
     path('pluscart/', views.plus_cart, name='pluscart'),
+    path('minuscart/', views.minus_cart, name='minuscart'),
 
 
    #login authentication
