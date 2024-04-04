@@ -20,7 +20,7 @@ def home(request):
     return render(request,"home.html")
 
 def about(request):
-    return render(request,"about.html")
+    return render(request,"cart.html")
 
 def contact(request):
     return render(request,"contact.html")
@@ -129,6 +129,12 @@ def show_cart(request):
         amount = amount + value
         totalamount = amount + 40
     return render(request,'addtocart.html',locals())
+
+
+class checkout(view):
+    def get(self,request):
+        return render(request,'checkout.html',locals())
+
 
 
 def plus_cart(request):
