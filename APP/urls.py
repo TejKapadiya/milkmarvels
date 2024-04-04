@@ -25,6 +25,7 @@ urlpatterns = [
     path('removecart/', views.remove_cart, name='removecart'),
     path('checkout/', views.checkout.as_view(), name='checkout'),
     path('paynow/', views.paynow, name='paynow'),
+    path('orders/', views.orders, name='orders'),
 
 
    #login authentication

@@ -214,41 +214,64 @@ def remove_cart (request):
         return redirect('/cart')
 
 
+def orders(request):
+    order_placed = OrderPlaced.objects.filter(user=request.user) 
+    return render(request, 'order.html ',locals())
+
+
+
+from django.shortcuts import redirect, render
+from django.contrib import messages
+
+from .models import Cart, Product, Customer, OrderPlaced, Payment
 
 def paynow(request):
     if request.method == 'POST':
         # Get the selected shipping address ID from the form
         address_id = request.POST.get('custid')
-        
+
         # Get the user's cart items
         cart_items = Cart.objects.filter(user=request.user)
 
         if address_id:
-            # Get the selected shipping address using the address_id
-            address = address.objects.get(id=address_id)
-            
-            # Create orders for each cart item
+            try:
+                # Get the selected shipping address using the address_id
+                address = Customer.objects.get(pk=address_id)  # Assuming address is stored within Customer model
+            except Customer.DoesNotExist:
+                messages.error(request, 'Invalid shipping address.')
+                return redirect('checkout')
+
+            # Create a single Payment object for the entire order
+            payment = Payment.objects.create(user=request.user, amount=0)  # Payment amount will be calculated later
+
             for cart_item in cart_items:
-                OrderPlaced.objects.create(
+                # Create an OrderPlaced object for each cart item
+                order = OrderPlaced.objects.create(
                     user=request.user,
-                    customer=request.user.customer,
+                    customer=address,
                     product=cart_item.product,
                     quantity=cart_item.quantity,
-                    status='Accepted',  # Set the initial status to Pending
-                    address=address  # Assign the selected shipping address
+                    status='Accepted',
+                    address=address,
+                    payment=payment,
                 )
-            print(OrderPlaced.customer,OrderPlaced.product,OrderPlaced.quantity,OrderPlaced.status,OrderPlaced.address)
+
+                # Update payment amount to reflect total cost of all items
+                payment.amount += order.total_cost
+
+            # Save the final payment amount
+            payment.save()
 
             # Clear the user's cart after placing the order
             Cart.objects.filter(user=request.user).delete()
 
             # Redirect to a success page or any other page after placing the order
-            return redirect('success_page')  # Change 'success_page' to your desired URL
+            return redirect('success_page')
 
         else:
-            # If no shipping address is selected, show an error message
             messages.error(request, 'Please select a shipping address.')
-            return redirect('checkout')  # Redirect back to the checkout page
+            return redirect('checkout')
+
     else:
         # Handle GET request (display the checkout page)
         # Your existing code for rendering the checkout page goes here
