@@ -47,7 +47,8 @@
                     <input type="number" class="form-control" name="totamount" value="{{totalamount}}" readonly />
                 </div>
                 <div class="text-end">
-                <a href="{% url 'checkout' %}" type="submit" class="btn btn-primary mt-3 px-S fw-bold">Payment</> 
+                <a href="{% url 'paynow' %}"  class="btn btn-primary mt-3 px-S fw-bold">Payment</a> 
+                    {% comment %} <a href="{% url 'paynow' %}" class="btn btn-primary">Place Order</a> {% endcomment %}
                 </div>
                 <br>
                 <br>
