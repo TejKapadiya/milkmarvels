@@ -5,7 +5,7 @@ from django.db.models import Count
 from django.http import HttpResponse ,JsonResponse
 from django.shortcuts import render
 from django.views import View
-from . models import Product , Customer ,Cart
+from . models import Product , Customer ,Cart 
 # from django.contrib.auth.forms import MySetPasswordForm
 
 from . forms import CustomerRegistrationForm , CustomerProfileForm ,MySetPasswordForm
@@ -131,8 +131,16 @@ def show_cart(request):
     return render(request,'addtocart.html',locals())
 
 
-class checkout(view):
+class checkout(View):
     def get(self,request):
+        user=request.user
+        add=Customer.objects.filter (user=user)
+        cart_items=Cart.objects.filter(user=user)
+        famount = 0
+        for p in cart_items:
+            value = p.quantity * p.product.discounted_price
+            famount = famount + value
+        totalamount = famount + 40
         return render(request,'checkout.html',locals())
 
 

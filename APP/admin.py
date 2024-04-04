@@ -12,7 +12,7 @@
 # # Register your models here.
 
 from django.contrib import admin
-from .models import Product ,Customer, Cart
+from .models import Product ,Customer, Cart,Payment,OrderPlaced
 
 @admin.register(Product)
 class ProductModelAdmin(admin.ModelAdmin):
@@ -42,3 +42,10 @@ from django.dispatch import receiver
 def delete_entry_with_zero_quantity(sender, instance, **kwargs):
     if instance.quantity == 0:
         instance.delete()
+
+@admin.register(Payment)
+class PaymentModelAdmin(admin.ModelAdmin):
+    list_display = ['id', 'user', 'amount', 'order_id', 'payment_status', 'payment_id', 'paid']
+@admin.register(OrderPlaced)
+class OrderPlacedModelAdmin(admin.ModelAdmin):
+    list_display=['id', 'user', 'customer', 'product', 'quantity', 'ordered_date', 'status', 'payment']
