@@ -3,15 +3,42 @@
 {% block title %}Contact{% endblock title %}
 {% block main-content %} 
 
-<div class="container mt-3">
-<br>
-<h2 class="text-center">Contact Us:</h2>
-<br>
-<div class="row container">
-<p class="fs-4 text-center">Address:Address</p>
-<p class="fs-4 text-center">Contact:1234567890 </p>
-<p class="fs-4 text-center">Email:test@test.com</p>
+<div class="container md-6  ">
+    <div class="row">
+        <div class="col-12 ">
+            <div class="card">
+                <div class="card-header bg-primary text-white text-center">
+                    <h2>Contact Us</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            <i class="fas fa-map-marker-alt fa-3x"></i>
+                        </div>
+                        <div class="col-10">
+                            <p class="fs-5">123 Street Name, City, Country</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            <i class="fas fa-phone-alt fa-3x"></i>
+                        </div>
+                        <div class="col-10">
+                            <p class="fs-5">123-456-7890</p>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-2">
+                            <i class="fas fa-envelope fa-3x"></i>
+                        </div>
+                        <div class="col-10">
+                            <p class="fs-5">contact@example.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-<br><br>
+
 {% endblock main-content %}
