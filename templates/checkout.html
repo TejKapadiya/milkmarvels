@@ -47,9 +47,7 @@
                     <input type="number" class="form-control" name="totamount" value="{{totalamount}}" readonly />
                 </div>
                 <div class="text-end">
-                    {% comment %} <button type="submit" class="btn btn-warning mt-3 px-5 fw-bold">Continue</button> {% endcomment %}
-                    <!--<div id="paypal-button-container"></div>-->
-                    <button id="rzp-button1" type="submit" class="btn btn-danger mt-3 px-S fw-bold">Payment</button> 
+                <a href="{% url 'checkout' %}" type="submit" class="btn btn-primary mt-3 px-S fw-bold">Payment</> 
                 </div>
                 <br>
                 <br>

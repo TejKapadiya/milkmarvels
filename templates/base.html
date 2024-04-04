@@ -83,7 +83,7 @@
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-danger" type="submit">Search</button>
+          <button class="btn btn-primary" type="submit">Search</button>
         </form>
       </div>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -121,6 +121,29 @@
 <script src="{% static 'js/all.min.js '%}"></script>
 <scriptm src="{% static 'js/myscript.js '%}"></script>
   <script>
+    $('#slider1, #slider2, #slider3').owlCarousel({
+      loop: true,
+      margin: 20,
+      responsiveClass: true,
+      responsive: {
+          0: {
+              items: 2,
+              nav: false,
+              autoplay: true,
+          },
+          600: {
+              items: 4,
+              nav: true,
+              autoplay: true,
+          },
+          1000: {
+              items: 6,
+              nav: true,
+              loop: true,
+              autoplay: true,
+          }
+      }
+  })
     $(document).ready(function() {
       $('.plus-cart').click(function() {
           var id = $(this).attr("pid").toString();
