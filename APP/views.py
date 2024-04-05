@@ -229,20 +229,28 @@ def paynow(request):
     if request.method == 'POST':
         # Get the selected shipping address ID from the form
         address_id = request.POST.get('custid')
-
+        print(address_id)
         # Get the user's cart items
         cart_items = Cart.objects.filter(user=request.user)
+        print(cart_items)
 
         if address_id:
+            print("hi")
+
             try:
+                print("hi")
+
                 # Get the selected shipping address using the address_id
                 address = Customer.objects.get(pk=address_id)  # Assuming address is stored within Customer model
             except Customer.DoesNotExist:
+                print("hi")
+
                 messages.error(request, 'Invalid shipping address.')
                 return redirect('checkout')
 
             # Create a single Payment object for the entire order
             payment = Payment.objects.create(user=request.user, amount=0)  # Payment amount will be calculated later
+            print("hi")
 
             for cart_item in cart_items:
                 # Create an OrderPlaced object for each cart item
@@ -252,7 +260,6 @@ def paynow(request):
                     product=cart_item.product,
                     quantity=cart_item.quantity,
                     status='Accepted',
-                    address=address,
                     payment=payment,
                 )
 
@@ -266,11 +273,11 @@ def paynow(request):
             Cart.objects.filter(user=request.user).delete()
 
             # Redirect to a success page or any other page after placing the order
-            return redirect('success_page')
+            return redirect(orders)
 
         else:
             messages.error(request, 'Please select a shipping address.')
-            return redirect('checkout')
+            return redirect(checkout)
 
     else:
         # Handle GET request (display the checkout page)
