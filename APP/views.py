@@ -277,7 +277,7 @@ def paynow(request):
 
         else:
             messages.error(request, 'Please select a shipping address.')
-            return redirect(checkout)
+            return redirect('checkout')
 
     else:
         # Handle GET request (display the checkout page)

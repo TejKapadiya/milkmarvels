@@ -105,7 +105,7 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
-class Customer(models.Model):
+class Address(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=200)
     locality = models.CharField(max_length=200)
@@ -116,6 +116,8 @@ class Customer(models.Model):
     def __str__(self):
         return self.name
 
+    # Creating an alias for the Customer class
+Customer = Address
 
 
 class Cart(models. Model):
@@ -149,7 +151,7 @@ class Payment(models.Model):
 
 class OrderPlaced(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
-    customer = models.ForeignKey(Customer,on_delete=models.CASCADE)
+    address = models.ForeignKey(Customer,on_delete=models.CASCADE)
     product = models.ForeignKey(Product,on_delete=models.CASCADE)
     quantity = models.PositiveIntegerField(default=1)
     ordered_date = models.DateTimeField(auto_now_add=True)
