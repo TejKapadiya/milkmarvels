@@ -256,7 +256,7 @@ def paynow(request):
                 # Create an OrderPlaced object for each cart item
                 order = OrderPlaced.objects.create(
                     user=request.user,
-                    customer=address,
+                    address=address,
                     product=cart_item.product,
                     quantity=cart_item.quantity,
                     status='Accepted',
