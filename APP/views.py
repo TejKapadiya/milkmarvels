@@ -11,10 +11,9 @@ from . models import Product , Customer ,Cart ,OrderPlaced
 from . forms import CustomerRegistrationForm , CustomerProfileForm ,MySetPasswordForm
 from django.contrib import messages
 from django.db.models import Q
+# from django.contrib.auth.decorators import login_required
 
-# Create your views here.
-# def login(request):
-#     return render(request,"home.html")
+
 
 def home(request):
     return render(request,"home.html")
@@ -283,3 +282,13 @@ def paynow(request):
         # Handle GET request (display the checkout page)
         # Your existing code for rendering the checkout page goes here
         return render(request, 'TEST.html')
+
+
+
+def search(request):
+    query = request.GET['search']
+    totalitem=0
+    if request.user.is_authenticated:
+        totalitem = len(Cart.objects.filter(user=request.user))
+    product = Product.objects.filter(Q(title__icontains=query))
+    return render(request, "search.html", locals())

@@ -143,9 +143,9 @@ STATUS_CHOICES = (
 class Payment(models.Model):
     user = models.ForeignKey (User, on_delete=models.CASCADE)
     amount = models.FloatField()
-    order_id = models.CharField(max_length=100, blank=True, null=True)
+    order_id = models.CharField(max_length=100, blank=True, null=True, default='pay1234')
     payment_status = models.CharField(max_length=100, blank=True, null=True)
-    payment_id = models.CharField(max_length=100, blank=True, null=True)
+    payment_id = models.CharField(max_length=100, blank=True, null=True,  default='pay1234')
     paid = models.BooleanField(default=True)
 
 

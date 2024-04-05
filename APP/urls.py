@@ -26,6 +26,8 @@ urlpatterns = [
     path('checkout/', views.checkout.as_view(), name='checkout'),
     path('pay/', views.paynow, name='paynow'),
     path('orders/', views.orders, name='orders'),
+    path('search/', views.search, name='search'),
+    
 
 
    #login authentication
