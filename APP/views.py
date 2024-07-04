@@ -25,7 +25,6 @@ def contact(request):
     return render(request,"contact.html")
 
 
-
 class CategoryView(View):
     def get(self,request,val):
         product = Product.objects.filter(category=val)
@@ -234,22 +233,18 @@ def paynow(request):
         print(cart_items)
 
         if address_id:
-            print("hi")
 
             try:
-                print("hi")
 
                 # Get the selected shipping address using the address_id
                 address = Customer.objects.get(pk=address_id)  # Assuming address is stored within Customer model
             except Customer.DoesNotExist:
-                print("hi")
 
                 messages.error(request, 'Invalid shipping address.')
                 return redirect('checkout')
 
             # Create a single Payment object for the entire order
             payment = Payment.objects.create(user=request.user, amount=0)  # Payment amount will be calculated later
-            print("hi")
 
             for cart_item in cart_items:
                 # Create an OrderPlaced object for each cart item
